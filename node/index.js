@@ -6,6 +6,11 @@ const AWS = require('aws-sdk')
 const got = require('got')
 const extract = require('extract-zip')
 
+/**
+ * creates a temporary directory in the root of the repo
+ *
+ * @returns {string} the path to the temp folder
+ */
 function mkdtemp() {
   const tempPath = path.join(__dirname, '.tmp', path.sep)
   fs.mkdirpSync(tempPath)
