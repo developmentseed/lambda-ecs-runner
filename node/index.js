@@ -1,10 +1,41 @@
 'use strict'
 
-const fs = require('fs')
+const fs = require('fs-extra')
 const path = require('path')
 const AWS = require('aws-sdk')
 const got = require('got')
 const extract = require('extract-zip')
+
+function mkdtemp() {
+  const tempPath = path.join(__dirname, '.tmp', path.sep)
+  fs.mkdirpSync(tempPath)
+  return fs.mkdtempSync(tempPath)
+}
+
+/**
+ * Updates region of an AWS configuration and point to the correct
+ * of profile on ~/.aws/credentials file if necessary
+ *
+ * @param {String} [region='us-east-1'] AWS region
+ * @param {String} [profile=null] aws credentials profile name
+ */
+function configureAws(region='us-east-1', profile, role) {
+  if (region) {
+    AWS.config.update({ region });
+  }
+
+  if (profile) {
+    AWS.config.credentials = new AWS.SharedIniFileCredentials({
+      profile
+    });
+  }
+
+  if (role) {
+    AWS.config.credentials = new AWS.TemporaryCredentials({
+      RoleArn: role
+    });
+  }
+}
 
 /**
  * Downloads the zip file associated with the arn of
@@ -19,7 +50,7 @@ async function download(arn, dst) {
 
   const data = await lambda.getFunction({ FunctionName: arn }).promise()
   const codeLocation = data.Code.Location
-  const handlerId = data.handlerId
+  const handlerId = data.Configuration.Handler
 
   const file = got.stream(codeLocation)
     .pipe(fs.createWriteStream(dst))
@@ -63,6 +94,8 @@ async function invoke(event, arn, dir) {
 }
 
 module.exports = {
+  mkdtemp,
+  configureAws,
   download,
   invoke
 }

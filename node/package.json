@@ -18,10 +18,14 @@
   "ava": {
     "files": "tests/test.js"
   },
+  "bin": {
+    "lambda-runner": "./bin/cli.js"
+  },
   "homepage": "https://github.com/developmentseed/lambda-ecs-runner#readme",
   "devDependencies": {
     "archiver": "^2.1.1",
     "ava": "^0.25.0",
+    "commander": "^2.16.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.9.0",
@@ -33,7 +37,7 @@
     "sinon": "^6.1.3"
   },
   "dependencies": {
-    "aws-sdk": "^2.278.1",
+    "aws-sdk": "^2.279.1",
     "extract-zip": "^1.6.7",
     "got": "^8.3.2"
   }

@@ -2,7 +2,6 @@
 
 'use strict'
 
-import os from 'os'
 import fs from 'fs-extra'
 import path from 'path'
 import test from 'ava'
@@ -10,10 +9,10 @@ import nock from 'nock'
 import sinon from 'sinon'
 import AWS from 'aws-sdk'
 import archiver from 'archiver'
-import { download, invoke } from '../index'
+import { download, invoke, mkdtemp } from '../index'
 
 test.beforeEach(async (t) => {
-  t.context.tempDir = fs.mkdtempSync(`${os.tmpdir()}${path.sep}`)
+  t.context.tempDir = mkdtemp()
   t.context.lambdaZip = path.join(t.context.tempDir, 'remoteLambda.zip')
 
   // zip fake lambda
@@ -42,7 +41,9 @@ test.beforeEach(async (t) => {
           Code: {
             Location: 'https://example.com/lambda'
           },
-          handlerId: t.context.expectedOutput.join('.')
+          Configuration: {
+            Handler: t.context.expectedOutput.join('.')
+          }
         })
       })
     })
