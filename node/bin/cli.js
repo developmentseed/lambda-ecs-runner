@@ -30,8 +30,14 @@ program
     runner.configureAws(region, profile)
     runner.invoke(event, arn, tempDir)
       .then(console.log)
-      .catch(console.error)
-      .then(() => fs.remove(tempDir))
+      .catch((e) => {
+        console.error(e)
+        return true
+      })
+      .then((failed) => {
+        fs.remove(tempDir)
+        if (failed) process.exit(1)
+      })
   })
 
 program
