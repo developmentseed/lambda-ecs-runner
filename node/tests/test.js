@@ -42,7 +42,12 @@ test.beforeEach(async (t) => {
             Location: 'https://example.com/lambda'
           },
           Configuration: {
-            Handler: t.context.expectedOutput.join('.')
+            Handler: t.context.expectedOutput.join('.'),
+            Environment: {
+              Variables: {
+                ecs_runner_test: 'this is great'
+              }
+            }
           }
         })
       })
@@ -62,6 +67,9 @@ test.serial('test download', async (t) => {
   // make sure the file is download
   const stat = fs.statSync(dst)
   t.true(stat.isFile())
+
+  // check env variable is set
+  t.is(process.env.ecs_runner_test, 'this is great')
 })
 
 test.serial('test successful invoke', async (t) => {

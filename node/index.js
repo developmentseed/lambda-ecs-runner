@@ -21,24 +21,26 @@ function mkdtemp() {
  * Updates region of an AWS configuration and point to the correct
  * of profile on ~/.aws/credentials file if necessary
  *
- * @param {String} [region='us-east-1'] AWS region
- * @param {String} [profile=null] aws credentials profile name
+ * @param {String} [region='us-east-1'] - AWS region
+ * @param {String} profile - AWS profile name in ~/.aws/credentials file
+ * @param {String} role - AWS IAM role name
+ * @returns {undefined} undefined
  */
 function configureAws(region='us-east-1', profile, role) {
   if (region) {
-    AWS.config.update({ region });
+    AWS.config.update({ region })
   }
 
   if (profile) {
     AWS.config.credentials = new AWS.SharedIniFileCredentials({
       profile
-    });
+    })
   }
 
   if (role) {
     AWS.config.credentials = new AWS.TemporaryCredentials({
       RoleArn: role
-    });
+    })
   }
 }
 
@@ -56,6 +58,14 @@ async function download(arn, dst) {
   const data = await lambda.getFunction({ FunctionName: arn }).promise()
   const codeLocation = data.Code.Location
   const handlerId = data.Configuration.Handler
+
+  // if there are environment variables, set them
+  if (data.Configuration.Environment) {
+    const variables = data.Configuration.Environment.Variables
+    Object.keys(variables).forEach((key) => {
+      process.env[key] = variables[key]
+    })
+  }
 
   const file = got.stream(codeLocation)
     .pipe(fs.createWriteStream(dst))
