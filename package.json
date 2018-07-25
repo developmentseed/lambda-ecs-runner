@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A collection of packages for running AWS Lambda functions as ECS tasks for nodejs and python",
   "scripts": {
+    "lint": "eslint . --ext .js",
     "test": "lerna run test",
     "bootstrap": "lerna bootstrap"
   },

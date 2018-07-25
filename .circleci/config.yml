@@ -1,0 +1,23 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.11
+    working_directory: ~/project
+    steps:
+      - checkout
+
+      - run:
+          name: Install
+          command: yarn
+      - run:
+          name: Bootstrap
+          command: yarn bootstrap 
+      - run:
+          name: Lint
+          command: yarn lint
+      - run:
+          name: Test
+          command: yarn test
+    
