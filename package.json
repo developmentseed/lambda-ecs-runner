@@ -1,0 +1,36 @@
+{
+  "name": "lambda-ecs-runner",
+  "version": "1.0.0",
+  "description": "A collection of packages for running AWS Lambda functions as ECS tasks for nodejs and python",
+  "scripts": {
+    "test": "lerna run test",
+    "bootstrap": "lerna bootstrap"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/developmentseed/lambda-ecs-runner.git"
+  },
+  "author": "Alireza J <alireza@developmentseed.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/developmentseed/lambda-ecs-runner/issues"
+  },
+  "ava": {
+    "files": "tests/test.js"
+  },
+  "bin": {
+    "lambda-runner": "./bin/cli.js"
+  },
+  "homepage": "https://github.com/developmentseed/lambda-ecs-runner#readme",
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsdoc": "^3.5.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "lerna": "^2.11.0"
+  },
+  "dependencies": {}
+}

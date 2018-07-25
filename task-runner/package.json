@@ -1,5 +1,5 @@
 {
-  "name": "lambda-ecs-runner-node",
+  "name": "@developmentseed/task-runner",
   "version": "1.0.0",
   "description": "A package for running AWS Lambda functions as ECS tasks for nodejs",
   "main": "index.js",
@@ -23,21 +23,16 @@
   },
   "homepage": "https://github.com/developmentseed/lambda-ecs-runner#readme",
   "devDependencies": {
+    "aws-sdk": "^2.279.1",
     "archiver": "^2.1.1",
     "ava": "^0.25.0",
     "commander": "^2.16.0",
     "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.9.0",
-    "eslint-plugin-jsdoc": "^3.5.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.7.0",
     "fs-extra": "^7.0.0",
     "nock": "^9.4.2",
     "sinon": "^6.1.3"
   },
   "dependencies": {
-    "aws-sdk": "^2.279.1",
     "extract-zip": "^1.6.7",
     "got": "^8.3.2"
   }
