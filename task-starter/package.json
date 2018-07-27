@@ -1,0 +1,31 @@
+{
+  "name": "@developmentseed/task-starter",
+  "version": "0.1.0",
+  "description": "A lambda function for starting AWS Lambda functions as ECS tasks on nodejs",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo 'no test'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/developmentseed/lambda-ecs-runner.git"
+  },
+  "author": "Alireza J <alireza@developmentseed.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/developmentseed/lambda-ecs-runner/issues"
+  },
+  "ava": {
+    "files": "tests/test.js"
+  },
+  "bin": {
+    "lambda-runner": "./bin/cli.js"
+  },
+  "homepage": "https://github.com/developmentseed/lambda-ecs-runner#readme",
+  "devDependencies": {
+    "aws-sdk": "^2.279.1",
+    "ava": "^0.25.0"
+  },
+  "dependencies": {
+  }
+}

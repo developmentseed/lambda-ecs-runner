@@ -1,0 +1,9 @@
+{
+    "rules": {
+        "no-prototype-builtins": "off",
+        "no-param-reassign": "off",
+        "no-multi-assign": "off",
+        "no-plusplus": "off",
+        "no-use-before-define": "off"
+    }
+}
