@@ -5,7 +5,7 @@ const AWS = require('aws-sdk')
 /**
  * Error object for invalid inputs
  *
- * @param {String} msg - error message
+ * @param {string} msg - error message
  * @returns {Error} the error object
  */
 function newException(msg) {

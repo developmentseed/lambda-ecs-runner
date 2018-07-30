@@ -96,17 +96,15 @@ test('test handler', async (t) => {
           'this is great'
         )
         return {
-          promise: async () => {
-            return {
-              Configuration: {
-                Environment: {
-                  Variables: {
-                    ecs_runner_test: 'this is great'
-                  }
+          promise: async () => ({
+            Configuration: {
+              Environment: {
+                Variables: {
+                  ecs_runner_test: 'this is great'
                 }
               }
             }
-          }
+          })
         }
       }
     })
