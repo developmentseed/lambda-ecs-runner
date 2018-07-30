@@ -9,8 +9,8 @@
 
 The ECS [task-runner](https://npmjs.com/package/@developmentseed/task-runner) and [task-starter](https://npmjs.com/package/@developmentseed/task-starter) solves this problem by enabling you to run an existing lambda function as an [ECS task](https://aws.amazon.com/ecs/) on a [Fargate](https://aws.amazon.com/fargate/) box. This approach requires having an existing lambda function in the first place.
 
-- [Task Runner](task-runner/README.md)
-- [Task Starter](task-starter/README.md)
+- [Task Runner](task-runner/README.md) | [![npm version](https://badge.fury.io/js/%40developmentseed%2Ftask-runner.svg)](https://badge.fury.io/js/%40developmentseed%2Ftask-runner)
+- [Task Starter](task-starter/README.md) | [![npm version](https://badge.fury.io/js/%40developmentseed%2Ftask-starter.svg)](https://badge.fury.io/js/%40developmentseed%2Ftask-starter)
 
 ## Development
 
