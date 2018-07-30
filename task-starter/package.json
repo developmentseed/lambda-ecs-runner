@@ -4,7 +4,7 @@
   "description": "A lambda function for starting AWS Lambda functions as ECS tasks on nodejs",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo 'no test'"
+    "test": "ava tests/test.js"
   },
   "repository": {
     "type": "git",
@@ -23,9 +23,9 @@
   },
   "homepage": "https://github.com/developmentseed/lambda-ecs-runner#readme",
   "devDependencies": {
+    "ava": "^0.25.0",
     "aws-sdk": "^2.279.1",
-    "ava": "^0.25.0"
+    "sinon": "^6.1.4"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
