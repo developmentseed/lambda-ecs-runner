@@ -1,6 +1,6 @@
 {
   "name": "@developmentseed/task-runner",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A package for running AWS Lambda functions as ECS tasks for nodejs",
   "main": "index.js",
   "scripts": {

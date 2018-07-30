@@ -5,6 +5,7 @@
   "scripts": {
     "lint": "eslint . --ext .js",
     "test": "lerna run test",
+    "update": "lerna publish --skip-git --skip-npm",
     "bootstrap": "lerna bootstrap"
   },
   "repository": {
