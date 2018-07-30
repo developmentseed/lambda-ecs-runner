@@ -21,6 +21,9 @@
   "bin": {
     "task-runner": "./bin/cli.js"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/developmentseed/lambda-ecs-runner#readme",
   "devDependencies": {
     "aws-sdk": "^2.279.1",

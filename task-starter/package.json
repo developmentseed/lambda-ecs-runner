@@ -21,6 +21,9 @@
   "bin": {
     "lambda-runner": "./bin/cli.js"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/developmentseed/lambda-ecs-runner#readme",
   "devDependencies": {
     "ava": "^0.25.0",
