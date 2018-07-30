@@ -19,7 +19,7 @@
     "files": "tests/test.js"
   },
   "bin": {
-    "lambda-runner": "./bin/cli.js"
+    "task-runner": "./bin/cli.js"
   },
   "homepage": "https://github.com/developmentseed/lambda-ecs-runner#readme",
   "devDependencies": {
